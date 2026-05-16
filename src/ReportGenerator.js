@@ -37,7 +37,9 @@ export class ReportGenerator {
           total += item.value;
         } else if (reportType === 'HTML') {
           const style = item.priority ? 'style="font-weight:bold;"' : '';
-          report += `<tr ${style}><td>${item.id}</td><td>${item.name}</td><td>${item.value}</td></tr>\n`;
+          report += style
+            ? `<tr ${style}><td>${item.id}</td><td>${item.name}</td><td>${item.value}</td></tr>\n`
+            : `<tr><td>${item.id}</td><td>${item.name}</td><td>${item.value}</td></tr>\n`;
           total += item.value;
         }
       } else if (user.role === 'USER') {
